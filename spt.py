@@ -1,9 +1,8 @@
-import datetime
-
 import speech_recognition as sr
 from google_trans_new import google_translator
 import pyttsx3
 from time import sleep
+import datetime
 
 
 # initialize the microphone of the computer
@@ -50,19 +49,20 @@ def recognize_voice():
         # Speak the assistant with the Spanish Voice
         speak_en('hello, how can I help you?')
         audio_data = ''
-        # listen the audio via source
+        # listen the audio via sourcebumb
         r.adjust_for_ambient_noise(source)
         voice = r.listen(source)
         try:
             # define the input language (Spanish)
             audio_data = r.recognize_google(voice, language='en-in')
             print(audio_data)
-            if 'yes' in audio_data:
-                speak_en('works fine!!')
+            if 'what time is it' in audio_data:
+                print(datetime.datetime.now())
+                speak_en(str(datetime.datetime.now()))
         except sr.RequestError:
-            speak_en('check your internet conetion')
+            speak_en('check your internet connection')
         except sr.UnknownValueError:
-            speak_en('i dont get  that')
+            speak_en('I do not get that')
         return audio_data.lower()
 
 
