@@ -1,7 +1,6 @@
 import speech_recognition as sr
 import pyttsx3
 from time import sleep
-import datetime
 
 
 class Voice:
@@ -46,24 +45,13 @@ class Assistant(Voice):
         with self.mic as source:
             print('listening....')
             # listen the audio via source
-            self.r.adjust_for_ambient_noise(source)
-            self.r.dynamic_energy_threshold = 3000
-            voice = self.r.listen(source, timeout=5.0)
+            self.r.adjust_for_ambient_noise(source, duration=0.2)
+            voice = self.r.listen(source)
             try:
-
                 # define the input language (English)
-                audio_data = self.r.recognize_google(voice, language='en-in')
-                print(audio_data)
-                if 'what time is it' in audio_data:
-                    y.speak_en(str(datetime.datetime.now()))
+                return self.r.recognize_google(voice, language='en-US')
             except sr.RequestError:
                 y.speak_en('check your internet connection')
             except sr.UnknownValueError:
                 y.speak_en('I do not get that')
 
-
-sleep(1)
-if __name__ == '__main__':
-    # initialize the microphone of the computer
-    x = Assistant()
-    x.recognize_voice()
