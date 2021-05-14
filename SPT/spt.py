@@ -36,7 +36,7 @@ class Voice:
 
 
 class Assistant(Voice):
-    def __init__(self, text):
+    def __init__(self):
         super().__init__()
         self.r = sr.Recognizer()
         self.mic = sr.Microphone(device_index=0)

@@ -3,9 +3,14 @@ import datetime
 import webbrowser
 from google_trans_new import google_translator
 
-x = Assistant('listening ....')
+x = Assistant()
 assistant = x.recognize_voice()
 voices = Voice()
+
+# we create a dictionary with lists in which
+# we add expressions for the wizard to respond to us
+term = {'translator': ['translator', 'want to translate']}
+t = (term["translator"])
 
 if __name__ == '__main__':
     if 'ok' in assistant:
@@ -25,7 +30,7 @@ if __name__ == '__main__':
         assistant = x.recognize_voice()
         url = 'https://www.youtube.com/results?search_query=' + assistant
         webbrowser.open(url)
-    elif 'translator' in assistant:
+    elif assistant in t[0:2]:
         translator = google_translator()
         print(voices.speak_en('what do you want to translate'))
         assistant = x.recognize_voice()
