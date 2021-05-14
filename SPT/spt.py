@@ -36,7 +36,7 @@ class Voice:
 
 
 class Assistant(Voice):
-    def __init__(self):
+    def __init__(self, text):
         super().__init__()
         self.r = sr.Recognizer()
         self.mic = sr.Microphone(device_index=0)
@@ -49,9 +49,14 @@ class Assistant(Voice):
             voice = self.r.listen(source)
             try:
                 # define the input language (English)
-                return self.r.recognize_google(voice, language='en-US')
+                result = self.r.recognize_google(voice, language='en-US')
+                print(result)
+                return result
             except sr.RequestError:
                 y.speak_en('check your internet connection')
             except sr.UnknownValueError:
                 y.speak_en('I do not get that')
+                return None
 
+
+sleep(1)
