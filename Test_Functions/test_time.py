@@ -15,3 +15,7 @@ class test_Time(unittest.TestCase, Time):
         expected = self.hour
         result = expected
         self.assertEqual(expected, result)
+
+
+if __name__ == '__main__':
+    unittest.main()
