@@ -9,7 +9,7 @@ class Voice:
 
     def speak_es(self, audio):
         """
-
+        method to obtain the property of speaking in spanish
         :param audio:
         :return:audio
 
@@ -23,7 +23,7 @@ class Voice:
 
     def speak_en(self, audio):
         """
-
+        method to obtain the property of speaking in german
         :param audio:
         :return:audio
 
