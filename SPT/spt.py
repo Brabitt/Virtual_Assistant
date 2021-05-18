@@ -55,10 +55,8 @@ class Assistant(Voice):
                 return result
             except sr.RequestError:
                 print(y.speak_en('check your internet connection'))
-                return None
             except sr.UnknownValueError:
                 print(y.speak_en('I do not get that'))
-                return None
 
 
 sleep(1)

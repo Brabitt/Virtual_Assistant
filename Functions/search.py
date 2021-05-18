@@ -11,16 +11,22 @@ class Search(Assistant, Voice):
     def search_google(self, voices=Voice(), x=Assistant()):
         print(voices.speak_en('tell what do you want to search '))
         assistant = x.recognize_voice()
-        url = 'https://google.com/search?q=' + assistant
-        new_url = self.open(url)
-        print(voices.speak_en('this is what a found for ' + assistant))
-        return new_url
+        if assistant:
+            url = 'https://google.com/search?q=' + str(assistant)
+            new_url = self.open(url)
+            print(voices.speak_en('this is what a found for ' + str(assistant)))
+            return new_url
+        else:
+            return None
 
     # method for search on YouTube
     def search_youtube(self, voices=Voice(), x=Assistant()):
         print(voices.speak_en('tell what do you want to search on youtube '))
         assistant = x.recognize_voice()
-        url = 'https://www.youtube.com/results?search_query=' + assistant
-        new_url = self.open(url)
-        print(voices.speak_en('this is what a found for ' + assistant))
-        return new_url
+        if assistant:
+            url = 'https://www.youtube.com/results?search_query=' + str(assistant)
+            new_url = self.open(url)
+            print(voices.speak_en('this is what a found for ' + str(assistant)))
+            return new_url
+        else:
+            return None
