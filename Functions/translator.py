@@ -10,6 +10,9 @@ class Translator(Assistant, Voice):
     def Spanish(self, voices=Voice(), x=Assistant()):
         print(voices.speak_en('what do you want to translate'))
         assistant = x.recognize_voice()
-        t = self.translator_en.translate(assistant, lang_tgt='es')
-        voices.speak_es(t)
-        return t
+        if assistant:
+            t = self.translator_en.translate(assistant, lang_tgt='es')
+            voices.speak_es(t)
+            return t
+        else:
+            print(voices.speak_en('sorry,I did not understand what you want to translate '))
