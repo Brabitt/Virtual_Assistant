@@ -1,9 +1,13 @@
 from SPT.spt import Assistant
-from SPT.terms import translator, time, google, youtube
+from SPT.terms import translator, time, google, youtube, exit, virtual_assistant
 from Functions.translator import Translator
 from Functions.search import Search
 from Functions.time import Time
+from Functions.userName import User
 
+
+u = User('')
+u.username()
 
 while True:
 
@@ -11,21 +15,24 @@ while True:
     assistant = x.recognize_voice()
     if __name__ == '__main__':
         if assistant in translator:
-            x = Translator()
-            x.Spanish()
+            interpreter = Translator()
+            interpreter.Spanish()
 
         elif assistant in time:
-            z = Time()
-            z.Hour()
+            clock = Time()
+            clock.Hour()
 
         elif assistant in google:
-            y = Search()
-            y.search_google()
+            search_google = Search()
+            search_google.search_google()
 
         elif assistant in youtube:
-            h = Search()
-            h.search_youtube()
+            search_youtube = Search()
+            search_youtube.search_youtube()
 
-        else:
-            if 'exit' in assistant:
-                break
+        elif assistant in virtual_assistant:
+            u = User('')
+            u.username()
+
+        elif assistant in exit:
+            break
