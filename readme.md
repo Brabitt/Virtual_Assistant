@@ -81,6 +81,14 @@ with this directory we separate the Assistant from the functions to get a cleane
 is the main file of the project and is where the project is executed from.
 In this file we instantiate our classes (SPT, Functions) and create new objects in order to start our Virtual Assistant.
 
+### class diagram 
+
+![class diagram](images/klassediagram.jpeg)
+
+### Use case diagram 
+
+![class diagram](images/usecasediagram.jpeg)
+
 
 ### Authors
 ```
