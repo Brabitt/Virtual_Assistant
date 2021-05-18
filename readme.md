@@ -83,11 +83,11 @@ In this file we instantiate our classes (SPT, Functions) and create new objects 
 
 ### class diagram 
 
-![class diagram](images/klassediagram.jpeg)
+[class diagram](https://app.luminpdf.com/viewer/60a40b12c974920011a6d176)
 
 ### Use case diagram 
 
-![class diagram](images/usecasediagram.jpeg)
+[use case diagram](https://app.luminpdf.com/viewer/60a40bb9c974920011a6d1a6)
 
 
 ### Authors
