@@ -30,6 +30,7 @@ class Voice:
         """
         en_voice_id = 'com.apple.speech.synthesis.voice.Victoria'
         self.engine.setProperty('voice', en_voice_id)
+        self.engine.setProperty('volume', 0.9)
         self.engine.say(audio)
         self.engine.runAndWait()
         return audio
@@ -53,9 +54,10 @@ class Assistant(Voice):
                 print(result)
                 return result
             except sr.RequestError:
-                y.speak_en('check your internet connection')
+                print(y.speak_en('check your internet connection'))
+                return None
             except sr.UnknownValueError:
-                y.speak_en('I do not get that')
+                print(y.speak_en('I do not get that'))
                 return None
 
 
